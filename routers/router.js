@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const {leerServicios} =require('../controllers/serviciosController');
 
 router.get('/', (req, res) => {
     res.render('index', {
@@ -9,28 +9,6 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/servicios', (req, res) => {
-    res.render('servicios', {
-        titulo: 'Servicio desde views',
-        descripcion: 'Esta es la descripción de servicios',
-        data: [
-            {
-                "nombre": "Servicio Uno",
-                "comentario": "este es el comentario del servicio Uno",
-                "fecha": ''
-            },
-            {
-                "nombre": "Servicio Dos",
-                "comentario": "este es el comentario del servicio Dos",
-                "fecha": ''
-            },
-            {
-                "nombre": "Servicio Dos",
-                "comentario": "este es el comentario del servicio Tres",
-                "fecha": ''
-            },
-        ]
-    });
-});
+router.get('/servicios', leerServicios);
 
 module.exports = router

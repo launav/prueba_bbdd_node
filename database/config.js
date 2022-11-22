@@ -1,14 +1,8 @@
 const mongoose = require('mongoose');
 
-
-const user = 'admin';
-const password = '1234';
-const dbName = 'pruebas-mongo';
-const uri = `mongodb+srv://${user}:${password}@cluster0.qvmaxup.mongodb.net/${dbName}?retryWrites=true&w=majority`;
-
 const DBConnection=async()=>{
     try{
-        await mongoose.connect(uri);
+        await mongoose.connect(process.env.URI_DB);
         console.log('conectado a la base de datos')
     }catch(error){
         console.log(error);

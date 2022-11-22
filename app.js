@@ -1,9 +1,11 @@
 const express = require('express');
+require('dotenv').config();
 const {DBConnection} = require('./database/config');
+
 
 /*CONFIGURAR EXPRESS*/
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 /*CONECTAR A BBDD*/
 //config js
